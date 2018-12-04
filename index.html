@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+<head>
+  <title></title>
+  <base href="/">
+  <link rel="stylesheet" type="text/css" href="./src/app.css">
+</head>
+<body>
+
+  <div ng-view >
+  </div>
+
+<!-- Core scripts -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.js'> </script>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-resource.js'></script>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js'></script>
+
+
+
+<!-- Services -->
+
+<script src='src/container/giphy-get/giphy-get.module.js'> </script>
+<script src='src/container/giphy-get/giphy-get.service.js'> </script>
+
+
+
+
+<!--  Components  -->
+<script src='src/app.module.js'> </script>
+<script src='src/app.config.js'> </script>
+<script src='src/components/giphy-list/giphy-list.module.js'> </script>
+<script src='src/components/giphy-list/giphy-list.component.js'> </script>
+<script src='src/components/giphy-view/giphy-view.module.js'> </script>
+<script src='src/components/giphy-view/giphy-view.component.js'> </script>
+<script src='src/components/giphy-detail/giphy-detail.module.js'> </script>
+<script src='src/components/giphy-detail/giphy-detail.component.js'> </script>
+
+</body>
+</html>

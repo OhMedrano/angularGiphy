@@ -1,0 +1,14 @@
+<div>
+    <div ng-if='vm.notFound'>
+      {{ vm.title }}
+    </div> 
+    <div ng-if='!vm.notFound'>
+        <h1> Blog {{vm.post.id}}</h1>
+
+        <h1>{{vm.post.title}}</h1>
+
+        <h3>{{vm.post.description}} </h3>
+
+    </div>
+
+</div>

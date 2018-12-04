@@ -1,0 +1,12 @@
+<div class='giphyListContainer'>
+  <div ng-if='!vm.state.loaded'> 
+    ...Loading
+  </div>
+  <div ng-if='vm.state.loaded'>
+  <div ng-repeat="giphy in vm.state.currentGiphyList[0]"> <!--  Gotta fix this in the component  -->
+  
+      <giphy-view  gif-val='giphy'>  </giphy-view>
+  </div>
+  </div>
+
+</div>
