@@ -1,12 +1,49 @@
 <div class='giphyListContainer'>
-  <div ng-if='!vm.state.loaded'> 
-    ...Loading
+
+<!--
+
+ Gotta find out what's going on with this component... It doesn't seem to show anything from the parent scope
+
+  Will be making the search component part of the list component til I'm able to figure out what's causing the issue
+
+-->
+
+  <giphy-search class='giphy_search giphy_list_item'search-params='vm.state.searchValues' ratings='vm.ratings'change-search-params='vm.changeSearch(name)'></giphy-search>
+
+
+
+
+<!--   <div class='giphy_search giphy_list_item'>
+    <div class='giphy_search_container' >
+      <form ng-model='vm.newSearchModel' ng-submit='vm.changeSearch(vm.newSearchModel)'>
+        <div class='query_title'>Search for...</div>
+        <input type='text' ng-model='vm.newSearchModel.query' ></input>
+      </form>
+      <div class='giphy_search_rating'> 
+        <div class='rating-title'>
+          Gif Rating: 
+        </div>
+        <div class='rating-container' ng-class='{"active-rating": vm.state.searchValues.rating == $index}' ng-click='vm.state.searchValues.rating = $index; vm.changeSearch(vm.state.searchValues)'  ng-repeat='rating in vm.ratings'> 
+          {{rating}}
+        </div>
+      </div>
+    </div>
   </div>
-  <div ng-if='vm.state.loaded'>
-  <div ng-repeat="giphy in vm.state.currentGiphyList[0]"> <!--  Gotta fix this in the component  -->
-  
-      <giphy-view  gif-val='giphy'>  </giphy-view>
-  </div>
+ -->
+
+  <div class='giphy_list_viewResults giphy_list_item'>
+      
+    <div ng-if='!vm.state.loaded'> 
+      ...Loading
+    </div>
+    <div ng-if='vm.state.loaded'>
+      <div class='list_container' style=''>
+          <div ng-repeat="giphy in vm.state.currentGiphyList[0]" class='giphyRepeat' style='  ' ng-style="{'max-width': giphy.images.original.width + 'px', 'max-height': giphy.images.original.height + 'px'}"> <!--  Gotta fix this in the component  -->
+            <giphy-view  class='giphy_view' gif-val='giphy' ng-style="{'max-width': giphy.images.original.width + 'px'}">  </giphy-view>
+          </div>
+      </div>
+    </div>
+
   </div>
 
 </div>

@@ -39,9 +39,16 @@ angular.module('giphyView').
 
               vm.backgroundGif = {
                 'background': 'url('+vm.refineGif.images.original.url + ')no-repeat',
+                'background-size': 'contain',
+                'background-position': 'center',
+                'max-width': vm.refineGif.images.original.width + 'px',
+                'max-height': vm.refineGif.images.original.height + 'px',
               }
 
-
+              vm.setDimensions = {
+                'max-width': vm.refineGif.images.original.width + 'px',
+                'max-height': vm.refineGif.images.original.height + 'px',
+              }
 
             };
             console.log(vm);

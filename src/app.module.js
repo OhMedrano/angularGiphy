@@ -13,5 +13,7 @@ angular.module('app',[
     'giphyList',
     'giphyView',
     'giphyDetail',
+    'giphySearch',
+    'giphyNavi',
 
 ]);

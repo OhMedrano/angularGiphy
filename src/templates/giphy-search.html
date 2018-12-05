@@ -1,0 +1,46 @@
+<!--     <div class='giphy_search_container' >
+        <form ng-model='$ctrl.newSearchModel' ng-submit='$ctrl.changeSubmit($ctrl.newSearchModel)'>
+          <div class='query_title'>Search for...</div>
+          <input type='text' ng-model='$ctrl.searchModel.query' ></input>
+        </form>
+        <div class='giphy_search_rating'> 
+          <div class='rating-title'>
+            Gif Rating: 
+          </div>
+          <div class='rating-container' ng-class='{"active-rating": $ctrl.state.searchValues.rating == $index}' ng-click='$ctrl.searchModel.rating = $index; $ctrl.changeSubmit($ctrl.searchModel)'  ng-repeat='rating in vm.ratings'> 
+            {{rating}}
+          </div>
+        </div>
+    </div> -->
+
+
+
+    <div class='giphy_search_container' ng-submit='$ctrl.changeSubmit($ctrl.searchModel)' ng-click='$ctrl.inputClick = true'>
+        
+        <form ng-model='$ctrl.searchModel'>
+          
+          <div class='query_title'> Search for...</div>
+
+
+
+          <div class='inputContainer'>
+            <div class='renderedText' ng-click='$ctrl.inputClick = true' ng-if='!$ctrl.inputClick'>
+              <div ng-repeat='letter in $ctrl.splitQuery track by $index' ng-click='$ctrl.inputClick = true' ng-style="{'text-shadow': $ctrl.letterColors[$index%$ctrl.letterColors.length] }" >
+                {{letter}}
+              </div>
+            </div>
+
+            <input ng-if='$ctrl.inputClick'type='text' ng-model='$ctrl.searchModel.query' />
+          </div>
+
+
+        </form>
+        <div class='giphy_search_rating'> 
+          <div class='rating-title'>
+            Gif Rating: 
+          </div>
+          <div class='rating-container' ng-class='{"active-rating": $ctrl.state.searchValues.rating == $index}' ng-click='$ctrl.searchModel.rating = $index; $ctrl.changeSubmit($ctrl.searchModel)'  ng-repeat='rating in $ctrl.ratings'> 
+            {{rating}}
+          </div>
+        </div>
+    </div>

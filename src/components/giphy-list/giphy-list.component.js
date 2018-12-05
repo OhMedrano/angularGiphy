@@ -11,15 +11,47 @@ angular.module('giphyList').
       _giphyList.state = {
         currentGiphyList: [],
         loaded: false,
+        searchValues: {
+          searchType: 'search',
+          query: 'lulz',
+          limit: 25,
+          rating: 1,
+          lang: 'en',
+          offset: 2,
+        }
+      }
+      _giphyList.ratings = ['Y','G','PG','PG-13','R'];
+      _giphyList.newSearchModel = angular.copy(_giphyList.state.searchValues);
+
+      _giphyList.changeSearch = function(name) {
+        angular.forEach(name, (item, i) => {
+          if(_giphyList.state.searchValues[i] != item ) {
+            _giphyList.state.searchValues[i] = item 
+          }
+          console.log(_giphyList.state.searchValues);
+           giphySvc.getGiphy(_giphyList.state.searchValues).then((res) => {
+              _giphyList.state.currentGiphyList = [];
+            
+            angular.forEach(res.data, (giphy, i) => {
+              _giphyList.state.currentGiphyList.push(giphy);
+            })  
+          _giphyList.state.loaded = true;
+        })
+        })  
       }
 
+
       
-      giphySvc.getGiphy().then((res) => {
-        angular.forEach(res.data, (giphy, i) => {
-          _giphyList.state.currentGiphyList.push(giphy);
+      if(!_giphyList.state.loaded) {
+        giphySvc.getGiphy(_giphyList.state.searchValues).then((res) => {
+            _giphyList.state.currentGiphyList = [];
+          
+          angular.forEach(res.data, (giphy, i) => {
+            _giphyList.state.currentGiphyList.push(giphy);
+          })
+          _giphyList.state.loaded = true;
         })
-        _giphyList.state.loaded = true;
-      })
+      }
 
 
 
@@ -37,6 +69,7 @@ angular.module('giphyList').
         console.log('clicked');
         _giphyList.click += 1;
         _giphyList.title = 'Clicked ' + _giphyList.click + ' times';
+
       }
     },
     controllerAs: 'vm',
