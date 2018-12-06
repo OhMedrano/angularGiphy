@@ -15,7 +15,7 @@ angular.module('app').
         template: '<giphy-list></giphy-detail>',
       }).
       when('/', {
-        template: '<giphy-list></giphy-list>',
+        template: '<book-view></book-view>',
       }).
       otherwise({
         template: '<giphy-list></giphy-list>',

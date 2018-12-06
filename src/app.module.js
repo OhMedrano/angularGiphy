@@ -15,5 +15,6 @@ angular.module('app',[
     'giphyDetail',
     'giphySearch',
     'giphyNavi',
-
+    'bookView',
+    'bookInfo',
 ]);

@@ -1,0 +1,22 @@
+
+<div>
+  <div style='display:flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around; padding: 1% 2%;'>
+    <div ng-repeat='book in $ctrl.books track by $index' style='border: 1px solid black; width: 20%; height: 300px;' ng-click='$ctrl.activeBook = $index; $ctrl.clickButton()'>
+        <div style =''>
+          {{book.name}}
+        </div>
+    </div>
+
+  </div>
+  <div>
+    <book-info></book-info>
+  </div>
+</div>
+
+
+
+
+
+
+
+
